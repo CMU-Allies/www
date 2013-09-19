@@ -1,0 +1,286 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+/*
+ * Begin the site CSS
+*/
+
+
+
+body {
+	font: 100% Helvetica, sans-serif;
+	background: #666666;
+	margin: 0; 
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #000000;
+}
+
+.alliescss p:first-child {
+	margin-top : 0;
+}
+
+.alliescss p {
+	margin-bottom: 0;
+}
+
+.alliescss #notice {
+	padding: 5px;
+	border: 1px solid #333;
+	margin-bottom: 20px;
+}
+
+.alliescss #container {
+	width: 768px;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 1px solid #000000;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	background-color: #FFFFFF;
+	background-image: none;
+}
+.alliescss #header {
+	background-repeat:no-repeat;
+	padding: 0;
+	margin: 0;
+	height: 150px;
+	float: none;
+	width: auto;
+	position:relative;
+}
+
+.alliescss #navbar{
+	position:relative;
+	height:55px;
+	padding-right:5px;
+}
+
+.alliescss #navbar div {
+	position:absolute;
+	bottom:0;
+	width:100%;
+	text-align:left;
+	background-color: #FFFFFF;
+	opacity: .80;
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+
+}
+.alliescss #navbar ul {
+  padding-left: 0;
+	margin: 0;
+	bottom:0;
+}
+.alliescss #navbar li { 
+	display: inline;
+}
+.alliescss #navbar  li a {
+	position:inherit;
+	bottom:0;
+	width: auto;
+	padding: 3px 15px;
+	color: Black;
+	text-decoration: none;
+	float: left;
+}
+.alliescss #navbar a:hover {
+	background-color: #888;
+	color: #000;
+}
+.alliescss #logo {
+	/* This div automatically puts the allies logo over the
+	 * background image
+	 */
+	width: 768px;
+	text-align:right;
+	background-image:url(/images/logo.png); 
+	background-repeat:no-repeat;
+	height: 95px;
+}
+
+.content-box {
+  border: 1px solid #000;
+  text-align: left;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.alliescss .topstory {
+	background-color:#cccccc;
+}
+
+.alliescss #open {
+	background-color: #3c0;
+}
+
+.alliescss #closed {
+	background-color: #f66;
+}
+
+.alliescss .content-box h3 {
+	margin: 0 0 1em 0;
+}
+
+ul.editlinks {
+	text-align: right;
+	font-size: 80%;
+	margin-bottom: 0;
+	margin-top : 0;
+}
+
+ul.editlinks li {
+	display:inline;
+}
+
+/* gallery css */
+.alliescss .image-listing img {
+	float: left;
+	border: 0;
+	margin-right: 5px;
+}
+
+.alliescss .image-listing {
+	text-align: left;
+	padding: 5px;
+	margin-bottom: 20px;
+	min-height: 96px;
+}
+
+.alliescss .link-wrapper {
+  text-align: center;
+}
+
+.alliescss .left-link {
+	float: left;
+}
+
+.alliescss .right-link {
+	float: right;
+}
+
+.alliescss .caption {
+	text-align: center;
+	width: 100%;
+	display: block;
+}
+
+.alliescss .gallery-image {
+	text-align: center;
+	width: 100%;
+	display: block;
+}
+/* end gallery css */
+
+.alliescss #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+.alliescss #mainContent {
+	padding: 20px 20px 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	background: #FFFFFF;
+}
+.alliescss #footer { 
+	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+	background:#DDDDDD;
+} 
+.alliescss #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+
+table.data {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.data th {
+  background-color: #333;
+  color: white;
+  padding: 3px;
+}
+
+table.data td {
+  padding: 3px;
+  border-width: 0;
+  font-size: 90%;
+}
+
+table.data tr.r0 td {
+  background-color: #eee;
+}
+
+table.data tr.r1 td {
+  background-color: #ddd;
+}
+
+.inline-button {
+  display: inline;
+}
+
+.editlinks form {
+  display: inline;
+}
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
