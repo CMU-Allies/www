@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include AuthenticatedSystem
   include ReCaptcha::AppHelper
   layout 'main'
 
