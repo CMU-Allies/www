@@ -5,9 +5,9 @@ set :deploy_to, "/srv/rails/www"
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "allies.andrew.cmu.edu"    # Your HTTP server, Apache/etc
-role :app, "allies.andrew.cmu.edu"    # This may be the same as your `Web` server
-role :db,  "allies.andrew.cmu.edu", :primary => true # This is where Rails migrations will run
+role :web, "allies-03.andrew.cmu.edu"    # Your HTTP server, Apache/etc
+role :app, "allies-03.andrew.cmu.edu"    # This may be the same as your `Web` server
+role :db,  "allies-03.andrew.cmu.edu", :primary => true # This is where Rails migrations will run
 
 # If you are using Passenger mod_rails uncomment this:
 
