@@ -1,0 +1,14 @@
+<h2><%= news_feed.title %></h2>
+
+<dl>
+	<% for item in news_feed.items %>
+		<dt><%= item.date.strftime "%a, %b %d %H:%M"%></dt>
+		<dd><%= link_to item.title, item.link%></dd>
+	<% end %>
+</dl>
+<% if admin? %>
+<ul class="editlinks">
+	<li><%= link_to 'Edit', edit_news_feed_path(news_feed) %></li>
+	<li><%= link_to 'Destroy', news_feed, :confirm => 'Are you sure?', :method => :delete %></li>
+</ul>
+<% end %>

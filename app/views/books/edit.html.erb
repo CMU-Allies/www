@@ -1,0 +1,15 @@
+<h1>Edit book</h1>
+<%= form_for(@book) do |f| %>
+  <%= redner 'shared/error_messages', :target => @book %>
+
+  <p><%= f.label :title %> <%= f.text_field :title %></p>
+  <p><%= f.label :media_type %> <%= f.text_field :media_type %></p>
+  <p><%= f.label :first_name %> <%= f.text_field :first_name %></p>
+  <p><%= f.label :last_name %> <%= f.text_field :last_name %></p>
+  <p><%= f.label :category %> <%= f.text_field :category %></p>
+  <p><%= f.label :synopsis %> <%= f.text_area :synopsis %></p>
+
+  <p><%= f.submit 'Update' %></p>
+<% end %>
+
+<%= link_to 'Back', @book %>

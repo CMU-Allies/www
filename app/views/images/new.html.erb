@@ -1,0 +1,31 @@
+<h1>New image</h1>
+
+<%= form_for(@image, :html => { :multipart => true }) do |f| %>
+  <%= render 'shared/error_messages', :target => @image %>
+
+  <p>
+    <%= f.label :order %><br />
+    <%= f.text_field :order %>
+  </p>
+  <p>
+    <%= f.label :caption %><br />
+    <%= f.text_field :caption %>
+  </p>
+  <p>
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </p>
+
+  <p>Gallery:</p>
+  <table>
+  <tr><td><%= radio_button 'gallery','new_gallery','no',:checked => true%></td>
+  <td>Existing:</td><td><%= f.select 'gallery_id', @galleries %></td></tr>
+  <tr><td><%= radio_button 'gallery','new_gallery','yes' %></td>
+  <td>New:</td><td><%= text_field 'gallery', 'name' %></td></tr>
+  </table>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', images_path %>

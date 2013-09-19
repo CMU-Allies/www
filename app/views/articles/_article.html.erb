@@ -1,0 +1,18 @@
+<%
+if article.topstory then 
+  ts = "topstory"
+else
+  ts = "normalstory"
+end %>
+
+<div class="<%=ts-%> content-box">
+
+<h3><%=h article.title %> :: <%= article.created_at.strftime('%F') %></h3>
+<p><%= article.text.html_safe %></p>
+<% if editor? %>
+	<ul class="editlinks">
+		<li><%= link_to 'Edit', edit_article_path(article) %></li>
+		<li><%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %></li>
+	</ul>
+<% end %>
+</div>

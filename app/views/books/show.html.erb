@@ -1,0 +1,11 @@
+<h1>Browsing SOHO Library</h1>
+<h2><%=h @book.title %></h2>
+<p><strong>Category:</strong> <%=h @book.category %></p>
+<p><strong>Author:</strong> <%=h @book.first_name%> <%=h @book.last_name %></p>
+<p><strong>Synopsis:</strong> <%=h @book.synopsis %></p>
+<% if admin? then %>
+<ul class="editlinks">
+  <li><%= link_to 'Edit', edit_book_path(@book) %></li>
+  <li><%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete %></li>
+</ul>
+<% end %>

@@ -1,5 +1,18 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  include AuthenticatedSystem
+  include ReCaptcha::AppHelper
+  layout 'main'
+
+  Time.zone = "Eastern Time (US & Canada)"
+
+  protect_from_forgery
+
+  protected
+  def editor?
+    logged_in? && current_user.editor
+  end
+
+  def admin?
+    logged_in? && current_user.admin
+  end
 end

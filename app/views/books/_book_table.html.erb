@@ -1,0 +1,25 @@
+<table class="content-box data">
+  <tr>
+    <th>Category</th>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Title</th>
+    <th>&nbsp;</th>
+  </tr>
+  <% parity = 0 %>
+  <% book_table.each do |book| %>
+  <tr class="r<%= parity -%>">
+    <td><%=h book.category %></td>
+    <td><%=h book.last_name %></td>
+    <td><%=h book.first_name %></td>
+    <td><%=h book.title %></td>
+    <td><%= link_to 'Details', book_path(book) %>
+    <% if admin? then %>
+      <%= link_to 'Edit', edit_book_path(book) %>
+      <%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    <% end %>
+  </tr>
+  <% parity = (parity + 1) % 2 %>
+  <% end %>
+</table>

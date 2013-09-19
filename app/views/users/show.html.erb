@@ -1,0 +1,11 @@
+<h1>User Profile</h1>
+<p><%= link_to 'Edit info', :action => 'edit_info' %><br />
+<%= link_to 'Change password', :action => 'change_password' %></p>
+<table>
+<tr><td>First name:</td><td><%= @user.first_name %></td></tr>
+<tr><td>Last name:</td><td><%= @user.last_name %></td></tr>
+<tr><td>Email:</td><td><%= @user.email %></td></tr>
+</table>
+<% if admin? %>
+<%= link_to 'User listing', :action => 'index' %>
+<% end %>

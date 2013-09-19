@@ -1,0 +1,15 @@
+<h1><%=h @gallery.name %></h1>
+<p><%=h @gallery.description %></p>
+
+<% @gallery.images.each do |image| %>
+<div class="image-listing">
+<%= link_to image_tag(image.image.url(:thumb)), image_url(image) %>
+<p><%=h image.caption %></p>
+<% if admin? %>
+	<ul class="editlinks">
+	<li><%= link_to 'Edit', edit_image_path(image) %></li>
+	<li><%= link_to 'Destroy', image, :confirm => 'Are you sure?', :method => :delete %></li>
+	</ul>
+<% end %>
+</div>
+<% end %>

@@ -1,0 +1,16 @@
+<h1>Galleries</h1>
+<%= link_to "Create new gallery", new_gallery_path if admin? %>
+<%= link_to "Create new image", new_image_path if admin? %>
+
+<% @galleries.each do |gallery| %>
+<div class="image-listing">
+<%= link_to image_tag(gallery.cover_image.image.url(:thumb)), gallery_url(gallery) %>
+<p><strong><%= gallery.name %>:</strong> <%= gallery.description %></p>
+<% if admin? %>
+	<ul class="editlinks">
+		<li><%= link_to 'Edit', edit_gallery_path(gallery) %></li>
+    <li><%= link_to 'Destroy', gallery, :confirm => 'Are you sure?', :method => :delete %></li>
+	</ul>
+<% end %>
+</div>
+<% end %>

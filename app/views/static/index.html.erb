@@ -1,0 +1,6 @@
+<%= render :partial => 'room_statuses/status', :object => @status %>
+
+<%= render :partial => 'articles/article', :collection => @articles %>
+
+<%= if editor? then link_to('New Article', new_article_path) + " | " end %>
+<%= link_to 'More Articles', articles_path %>

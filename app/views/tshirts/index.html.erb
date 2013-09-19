@@ -1,0 +1,24 @@
+<h1>T-Shirt listing</h1>
+<table class="content-box data">
+<tr>
+<th>Name</th>
+<th>Size</th>
+<th>Price </th>
+<th>Available for ordering</th>
+<th>&nbsp;</th>
+</tr>
+<% @tshirts.each do |tshirt| %>
+<tr class="<%= cycle('r0','r1') -%>">
+<td><%= tshirt.name %></td>
+<td><%= tshirt.size %></td>
+<td><%= price(tshirt.price) %></td>
+<td><%= tshirt.available ? 'yes' : 'no' %></td>
+<td>
+<%= link_to 'Show', tshirt_path(tshirt) %>
+<%= link_to 'Edit', edit_tshirt_path(tshirt) %>
+<%= link_to 'Destroy', tshirt, :confirm => 'Are you sure?', :method => :delete %>
+</td>
+</tr>
+<% end %>
+</table>
+<p><%= link_to 'New T-Shirt', new_tshirt_path %></p>

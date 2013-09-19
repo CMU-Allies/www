@@ -1,0 +1,14 @@
+<h1>Editing resource</h1>
+
+<%= form_for(@resource) do |f| %>
+	<%= render 'shared/error_messages', :target => @resource %>
+
+	<table>
+		<tr><td><%= f.label :title %></td><td><%= f.text_field :title%></td></tr>
+		<tr><td><%= f.label :url %></td><td><%= f.text_field :url %></td></tr>
+		<tr><td><%= f.label :text %></td><td><%= f.text_area :text %></td></tr>
+		<tr><td>Category: </td><td><%= f.select :category_id, @categories %></td></tr>
+		<tr><td></td><td><%= f.submit 'Update' %></td></tr>
+	</table>
+
+<% end %>

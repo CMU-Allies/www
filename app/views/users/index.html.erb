@@ -1,0 +1,16 @@
+<h1>User listing</h1>
+
+<table>
+<tr><th>First name</th><th>Last name</th><th>email</th><th>login</th><th>Admin?</th><th>Editor?</th></tr>
+<% @users.each do |user| %>
+<tr>
+<td><%= user.first_name %></td>
+<td><%= user.last_name %></td>
+<td><%= user.email %></td>
+<td><%= user.login %></td>
+<td><%= if user.admin then 'admin' end %></td>
+<td><%= if user.editor then 'editor' end %></td>
+<td><%= link_to 'Edit', edit_user_path(user) %></td>
+<% end %>
+</table>
+<%=link_to 'Create new user', :action => 'new' %>
