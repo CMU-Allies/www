@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem "paperclip", "~> 3.0"
+
+gem 'ruby-recaptcha'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 

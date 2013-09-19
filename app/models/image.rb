@@ -1,7 +1,6 @@
 class Image < ActiveRecord::Base
   belongs_to :gallery
-  has_attached_file :image, :styles => { :thumb => '96x96#', :medium => '640x480>' }
-
+  has_attached_file :image, :styles => { :thumb => '96x96#', :medium => '640x480>', :path => ":rails_root/public/system/:attachment/:id/:style/:filename", :url => "/system/:attachment/:id/:style/:filename"}
   validates :order, presence: true
   validates :gallery, presence: true
 
