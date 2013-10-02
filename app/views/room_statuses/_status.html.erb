@@ -1,3 +1,4 @@
+<% status = @status %>
 <div class="content-box" id="<%= status.to_s %>">
 <p>SOHO is <%= status.to_s %> (Last updated:
 <%= status.created_at.strftime "%a, %b %d %H:%M" %>) by <%= status.user.first_name %>. <a href="#" onclick="new Effect.toggle('explanatory_text','blind')">What does this mean?</a></p>

@@ -4,7 +4,7 @@ class RoomStatus < ActiveRecord::Base
   validates :user, presence: true
 
   # status of true means room is open, status of false means room is closed
-  def latest
+  def self.latest
     self.last(:order => :created_at)
   end
 
