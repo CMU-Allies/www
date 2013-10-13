@@ -1,8 +1,0 @@
-<h2><%= @tshirt.name %></h2>
-<ul class="editlinks">
-<li><%= link_to 'Back', tshirts_path %></li>
-<li><%= link_to 'Edit', edit_tshirt_path(@tshirt) %></li>
-<li><%= link_to 'Destroy', @tshirt, :confirm => 'Are you sure?', :method => :delete %></li>
-</ul>
-<p>Size: <%= @tshirt.size %></p>
-<p>Priced at <%= price(@tshirt.price) %>.</p>

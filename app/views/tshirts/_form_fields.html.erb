@@ -1,8 +1,0 @@
-<%= form_for @tshirt do |f| %>
-<%= render 'shared/error_messages', :target => @tshirt %>
-<p><%= f.label :name %><br /><%= f.text_field :name %></p>
-<p><%= f.label :size %><br /><%= f.text_field :size %></p>
-<p><%= f.label :price %><br /><%= f.text_field :price %></p>
-<p><%= f.label :available %><br /><%= f.check_box :available %></p>
-<p><%= f.submit @submit_label %></p>
-<% end %>
