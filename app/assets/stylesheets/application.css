@@ -47,14 +47,15 @@ body {
 
 #navbar li {
   display: inline;
+  float: left;
 }
 
 #navbar li a {
   padding: 4px 15px;
   text-decoration: none;
-  position: absolute;
+  position: relative;
+  top: 5px;
   color: black;
-  float: left;
   height: 19px;
 }
 
@@ -64,6 +65,22 @@ body {
 
 #main-content {
   padding: 20px 20px 10px 20px;
+}
+
+#notice {
+  border: 1px solid black;
+  text-align: left;
+  padding: 5px;
+  margin-bottom: 20px;
+  background-color: yellow;
+}
+
+#alert {
+  border: 1px solid black;
+  text-align: left;
+  padding: 5px;
+  margin-bottom: 20px;
+  background-color: red;
 }
 
 #main-footer {

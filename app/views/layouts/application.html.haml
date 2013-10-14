@@ -8,7 +8,14 @@
   %body
     %header#banner{ :style => "background-image: url(/images/banners/" + (Random.rand(4) + 1).to_s + ".jpg)" }
       #logo
-      %nav#navbar= render_navigation
+      %nav#navbar
+        %ul
+          %li= link_to "Home", root_url
+          - if user_signed_in?
+            %li= link_to "Account", edit_user_registration_url
+            %li= link_to "Log out", destroy_user_session_url, :method => :delete
+          - unless user_signed_in?
+            %li= link_to "Log in", new_user_session_url
     #main-content
       - if flash[:notice]
         #notice= flash[:notice]
