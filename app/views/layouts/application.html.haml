@@ -15,3 +15,10 @@
       - if flash[:alert]
         #alert= flash[:alert]
       = yield
+    %footer#main-footer
+      SOHO is located on the third floor of the University Center, Room 325
+      %br
+      We can be reached at #{link_to "allies@andrew.cmu.edu", "mailto:allies@andrew.cmu.edu"}
+      %br
+      Additionally, our office phone number is: x8-9994 (412-268-9994)
+      %p Copyright &copy; #{Time.now.year} ALLIES and Carnegie Mellon. All Rights Reserved.

@@ -8,8 +8,8 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require_tree .
+ *= require_self
  */
 
 html {
@@ -45,19 +45,12 @@ body {
   margin-top: 29px;
 }
 
-#navbar ul {
-  margin: 0;
-  padding: 0;
-}
-
 #navbar li {
   display: inline;
-  margin: 0;
-  padding: 0;
 }
 
 #navbar li a {
-  padding: 3px 15px;
+  padding: 4px 15px;
   text-decoration: none;
   position: absolute;
   color: black;
@@ -71,4 +64,15 @@ body {
 
 #main-content {
   padding: 20px 20px 10px 20px;
+}
+
+#main-footer {
+  background-color: #ddd;
+  padding: 1em 10px;
+  border-top: 1px solid black;
+}
+
+#main-footer p {
+  margin-top: 1em;
+  margin-bottom: 0;
 }
