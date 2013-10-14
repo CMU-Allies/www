@@ -1,0 +1,13 @@
+!!! 5
+%html
+  %head
+    %title= layout_title
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    - if flash[:notice]
+      #notice= flash[:notice]
+    - if flash[:alert]
+      #alert= flash[:alert]
+    = yield
