@@ -6,8 +6,12 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    - if flash[:notice]
-      #notice= flash[:notice]
-    - if flash[:alert]
-      #alert= flash[:alert]
-    = yield
+    %header#banner{ :style => "background-image: url(/images/banners/" + (Random.rand(4) + 1).to_s + ".jpg)" }
+      #logo
+      %nav#navbar= render_navigation
+    #main-content
+      - if flash[:notice]
+        #notice= flash[:notice]
+      - if flash[:alert]
+        #alert= flash[:alert]
+      = yield
