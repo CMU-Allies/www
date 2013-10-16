@@ -47,3 +47,4 @@ end
 gem 'haml'
 gem 'will_paginate', '~> 3.0'
 gem 'devise'
+gem 'cancan'

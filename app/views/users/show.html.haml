@@ -1,0 +1,21 @@
+%h1 User Profile
+- if current_user != @user
+  %p= link_to 'Edit info', edit_user_url(@user)
+- else
+  %p= link_to 'Edit info', edit_user_registration_url
+%table.user_info
+  %tr
+    %td First name:
+    %td= @user.first_name
+  %tr
+    %td Last name:
+    %td= @user.last_name
+  %tr
+    %td Email:
+    %td= @user.email
+  - if admin?
+    %tr
+      %td User level:
+      %td= @user.user_level
+- if admin?
+  %p= link_to "User listing", :action => "index"

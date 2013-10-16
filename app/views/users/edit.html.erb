@@ -1,0 +1,44 @@
+<h2>Edit user</h2>
+
+<%= form_for(@user, :url => user_path(@user), :html => { :method => :patch }) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
+ 
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div><%= f.label :login %><br />
+  <%= f.text_field :login, :autofocus => true %></div>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+  
+  <div><%= f.label :first_name %><br />
+  <%= f.text_field :first_name %></div>
+  
+  <div><%= f.label :last_name %><br />
+  <%= f.text_field :last_name %></div>
+  
+  <div><%= f.label :level %><br />
+  <%= select(:user, :level, user_level_options) %></div>
+
+  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <%= f.password_field :password, :autocomplete => "off" %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Update" %></div>
+<% end %>
+
+<h3>Delete account</h3>
+
+<p><%= button_to "Delete this account", user_path(@user), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+
+<%= link_to "Back", :back %>

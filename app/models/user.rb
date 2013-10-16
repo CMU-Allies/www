@@ -1,8 +1,22 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:login]
   
-  validates :first_name, :last_name, :presence => true
-  validates :login, :presence => true, :uniqueness => { :case_sensitive => false }
+  validates :first_name, :last_name, presence: true
+  validates :login, presence: true, uniqueness: { case_sensitive: false }
+  validates :level, inclusion: { in: 0..3 }
+  
+  def user_level
+    case self.level
+    when 0
+      "Not activated"
+    when 1
+      "SafeZone Trained"
+    when 2
+      "Editor"
+    when 3
+      "Admin"
+    end
+  end
   
   def active?
     self.level >= 1
