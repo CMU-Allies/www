@@ -47,6 +47,7 @@ end
 gem 'haml'
 gem 'will_paginate', '~> 3.0'
 gem 'devise'
+gem 'devise-encryptable'
 gem 'cancan'
 gem 'rails_admin'
 gem 'bootstrap-wysihtml5-rails'

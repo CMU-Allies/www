@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:login]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :encryptable, authentication_keys: [:login], :encryptor => :restful_authentication_sha1
   
   validates :first_name, :last_name, presence: true
   validates :login, presence: true, uniqueness: { case_sensitive: false }
