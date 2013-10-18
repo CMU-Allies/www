@@ -30,4 +30,13 @@ module ApplicationHelper
     end
   end
   
+  def display_room_status
+    status = RoomStatus.order("created_at DESC").limit(1).first
+    if status.nil?
+      ""
+    else
+      render partial: "shared/status", locals: { status: status }
+    end
+  end
+  
 end

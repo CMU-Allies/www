@@ -1,0 +1,16 @@
+#roomstatus{ :class => "rs-" + status.status.to_s }
+  %p
+    SOHO is #{status.status.to_s} (Last updated: #{status.created_at.strftime "%a, %b %d %H:%M"}) by #{status.user.first_name}.
+    :plain
+      <a href="#" onclick="$('#explanatory_text').toggle('slide'); return false">What does this mean?</a>
+  %p#explanatory_text{ :style => "display: none" } If the SOHO office is open, then there are SafeZone-trained members available to talk to. Feel free to stop by. If the SOHO office is marked as closed, there may not be SafeZone-trained members present, and the room may be locked.
+  - if user_signed_in?
+    = form_tag :controller => 'room_statuses', :action => 'create' do
+      %p
+        Set room status:
+        - if status.open
+          = hidden_field_tag 'status', 'false'
+          = submit_tag 'Closed', :class => 'inline-button'
+        - if !status.open
+          = hidden_field_tag 'status', 'true'
+          = submit_tag 'Open', :class => 'inline-button'

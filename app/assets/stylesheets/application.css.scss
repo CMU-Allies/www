@@ -93,3 +93,29 @@ body {
   margin-top: 1em;
   margin-bottom: 0;
 }
+
+#roomstatus {
+  border: 1px solid black;
+  padding: 5px;
+  margin-bottom: 20px;
+  
+  p {
+    margin-top: 1em;
+  }
+  
+  p:first-child {
+    margin-top: 0;
+  }
+  
+  form {
+    display: inline;
+  }
+}
+
+.rs-open {
+  background-color: #3c0;
+}
+
+.rs-closed {
+  background-color: #f66;
+}

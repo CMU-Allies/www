@@ -5,7 +5,9 @@ class Ability
     user ||= User.new
     
     if user.admin?
-      can :manage, :all
+      can :manage, User
+      can :read, RoomStatus
+      can :export, RoomStatus
     end
     
     if user.editor?
@@ -19,6 +21,7 @@ class Ability
     
     if user.active?
       # Room status changes, mostly
+      can :create, RoomStatus
     end
   end
 end
