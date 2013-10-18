@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
   
   validates :first_name, :last_name, presence: true
   validates :login, presence: true, uniqueness: { case_sensitive: false }
-  validates :level, inclusion: { in: 0..3 }
+  validates :level, inclusion: { in: 0..3 }, presence: true
   
-  def user_level
-    case self.level
+  def self.user_level(level)
+    case level
     when 0
       "Not activated"
     when 1
@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     when 3
       "Admin"
     end
+  end
+  
+  def user_level
+    User.user_level self.level
   end
   
   def active?
@@ -48,7 +52,7 @@ class User < ActiveRecord::Base
   
   after_create :send_admin_mail
   def send_admin_mail
-    AdminMailer.new_user_waiting_for_approval(self).deliver
+    AdminMailer.new_user_waiting_for_approval(self).deliver unless self.level > 0
   end
   
   def self.send_reset_password_instructions(attributes={})
@@ -59,5 +63,31 @@ class User < ActiveRecord::Base
       recoverable.send_reset_password_instructions
     end
     recoverable
+  end
+  
+  rails_admin do
+    list do
+      field :login
+      field :email
+      field :first_name
+      field :last_name
+      field :level do
+        pretty_value do
+          bindings[:object].user_level
+        end
+      end
+    end
+    
+    edit do
+      field :login
+      field :email
+      field :first_name
+      field :last_name
+      field :level do
+        def render
+          bindings[:view].render :partial => "user_level_select", :locals => {:field => bindings[:object]}
+        end
+      end
+    end
   end
 end

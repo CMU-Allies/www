@@ -9,11 +9,15 @@ class Ability
     end
     
     if user.editor?
+      # Editors and admins have access to the admin panel
+      can :access, :rails_admin
+      can :dashboard
+      
       # Articles
+      can :manage, Article
     end
     
     if user.active?
-      can :read, User, :id => user.id
       # Room status changes, mostly
     end
   end
