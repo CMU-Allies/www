@@ -18,6 +18,10 @@ class Ability
       
       # Articles
       can :manage, Article
+      
+      # Resources
+      can :manage, Resource
+      can :manage, ResourceCategory
     end
     
     if user.active?

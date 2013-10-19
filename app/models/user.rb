@@ -70,10 +70,6 @@ class User < ActiveRecord::Base
       :login
     end
     
-    def login
-      self.login
-    end
-    
     list do
       field :login
       field :email

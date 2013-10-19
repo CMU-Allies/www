@@ -9,4 +9,5 @@ Alliesweb::Application.routes.draw do
   post 'status' => 'room_statuses#create'
   get 'about' => 'static#about'
   get 'calendar' => 'static#calendar'
+  get 'resources' => 'resources#index'
 end

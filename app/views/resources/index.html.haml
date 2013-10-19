@@ -1,0 +1,16 @@
+#resources
+  %h1 Resources
+  #toc
+    %h2 Contents
+    %ol
+      - @categories.each do |category|
+        %li= link_to category.title, "\#cat-" + category.id.to_s
+  - @categories.each do |category|
+    %h2.res-cat{ :id => "cat-" + category.id.to_s }= category.title
+    - category.resources.each do |resource|
+      %article.resource
+        - if resource.url.empty?
+          %h3= resource.title
+        - if !resource.url.empty?
+          %h3= link_to resource.title, resource.url
+        = raw resource.text
