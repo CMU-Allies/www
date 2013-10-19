@@ -84,6 +84,11 @@ class User < ActiveRecord::Base
     
     edit do
       field :login
+      group :password do
+        field :password
+        field :password_confirmation
+        help "If you are creating a new user, these fields are required. If you are editing an existing user and do not want to change their password, leave these fields blank."
+      end
       field :email
       field :first_name
       field :last_name
