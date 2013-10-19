@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include ReCaptcha::ViewHelper
   
   def layout_title
     title = ""

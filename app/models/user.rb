@@ -66,6 +66,14 @@ class User < ActiveRecord::Base
   end
   
   rails_admin do
+    object_label_method do
+      :login
+    end
+    
+    def login
+      self.login
+    end
+    
     list do
       field :login
       field :email

@@ -8,6 +8,7 @@ class Ability
       can :manage, User
       can :read, RoomStatus
       can :export, RoomStatus
+      can :manage, Officer
     end
     
     if user.editor?

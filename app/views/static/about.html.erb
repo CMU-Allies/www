@@ -1,0 +1,39 @@
+<article>
+  <h1>About</h1>
+
+  <h2>Who are we?</h2>
+  <p>ALLIES is an organization for those of all sexual orientations who  support the gay, lesbian, bisexual, and transgendered community. We  discuss issues, raise awareness, and embrace individuality. Join us in  being active, being social, and being ourselves.</p>
+
+  <h2>Why is ALLIES capitalized?</h2>
+  <p>A member of ALLIES isn't just any ordinary ally: he or she is an  ALLY of LGBTQ community. The capitals identify an ALLY as a supporter  of a very specific and important cause.</p>
+  <p>This distinction is similar to that between &quot;romantic,&quot; something  marked by the heroic, adventurous, loving, mysterious, etc., and  &quot;Romantic,&quot; a term that refers to a particular period and style of  music and art whose practitioners sought to embody these qualitites  in their creations. One is a general term, the other is a very  precise usage.</p>
+
+  <h2><a name="Events" id="Events"></a>Events</h2>
+  <p>Some recurring events include:</p>
+  <ul>
+  	<li>Pride Month Events: Including National Coming Out Day, a keynote speaker, and other events </li>
+  	<li>Day of Silence: A day dedicated towards remembering and honoring those needlessly silenced by hatred</li>
+  	<li>Booth: We participate in Carnegie Mellon's Spring Carnival by building a blitz booth</li>
+  	<li>Half-price food: Going to Oakland for half-priced late dinners is always a great way to catch up with friends and enjoy great food at college kid costs. </li>
+  	<li>Holiday party: Intercollegiate Gay/Straight alliances come together to celebrate the season.</li>
+  	<li>Pegasus trips: Gay friendly clubbing, where you can dance the night away.</li>
+  	<li>Talent Show: Drag requested, costume recommended Halloween show in Skibo, where GLBT friendly students can show their skills.</li>
+  	<li>Movie nights: From The Mostly Unfabulous Social Life of Ethan Green to Rent, we watch movies and TV shows that relate to GLBT issues.</li>
+  	<li>Game night: Enjoy testing your &#39;straight&#39; face in playing the &#39;whodunnit&#39; pseudo-card game, Mafia.</li>
+  	<li>Date auction: Show yourself off while helping out ALLIES- Who knows? You might even end up falling in love!</li>
+  </ul>
+
+  <h2><a name="Constitution" id="Constitution"></a>Constitution</h2>
+  <p>The ALLIES constitution is available as an Adobe PDF from <a href="/constitution.pdf">This Link</a>. You need <a href="http://www.adobe.com/products/acrobat/readstep2.html">Adobe Acrobat Reader (free download)</a> to view this document. </p>
+
+  <p><a href="http://www.adobe.com/products/acrobat/readstep2.html"><img src="http://www.adobe.com/images/shared/download_buttons/get_adobe_reader.gif" width="112" height="33" border="0"></a></p>
+
+  <h2><a name="Officers" id="Officers"></a>Officers</h2>
+  <p>ALLIES has five elected positions. President and Vice-president are elected in the spring for the following year; the positions of Social/PR Chair, Activism Chair, and Treasurer are elected in the fall.</p>
+  <ul>
+  <% @officers.each do |officer| %>
+  <li><%= officer.title %>:
+    <%= mail_hide(officer.user.email, officer.name).html_safe %></li>
+  <% end %>
+  </ul>
+</article>
