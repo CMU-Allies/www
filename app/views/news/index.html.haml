@@ -1,0 +1,7 @@
+%h1 News
+%p#courtesy Courtesy of #{@feeds}.
+- @items.each do |item|
+  %article.news_feed
+    %h3= link_to item.title.html_safe, item.link
+    .byline= item.pubDate.to_s :long
+    = simple_format item.description

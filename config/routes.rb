@@ -1,7 +1,4 @@
 Alliesweb::Application.routes.draw do
-  get "static/about"
-  get "static/calendar"
-  get "room_status/create"
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :users
   root 'articles#home'
@@ -10,4 +7,5 @@ Alliesweb::Application.routes.draw do
   get 'about' => 'static#about'
   get 'calendar' => 'static#calendar'
   get 'resources' => 'resources#index'
+  get 'news' => 'news#index'
 end
