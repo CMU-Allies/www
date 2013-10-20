@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -53,3 +54,4 @@ gem 'rails_admin'
 gem 'bootstrap-wysihtml5-rails'
 gem 'ruby-recaptcha'
 gem 'simple-rss'
+gem 'capistrano', '~> 2.0'

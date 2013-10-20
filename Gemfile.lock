@@ -34,6 +34,12 @@ GEM
       railties (>= 3.0)
     builder (3.1.4)
     cancan (1.6.10)
+    capistrano (2.15.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -55,6 +61,7 @@ GEM
       railties (>= 3.2, < 5.0)
     haml (4.0.3)
       tilt
+    highline (1.6.20)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -76,7 +83,15 @@ GEM
     mini_portile (0.5.1)
     minitest (4.7.5)
     multi_json (1.8.2)
+    mysql2 (0.3.13)
     nested_form (0.3.2)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.7.0)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
@@ -163,12 +178,14 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-wysihtml5-rails
   cancan
+  capistrano (~> 2.0)
   coffee-rails (~> 4.0.0)
   devise
   devise-encryptable
   haml
   jbuilder (~> 1.2)
   jquery-rails
+  mysql2
   rails (= 4.0.0)
   rails_admin
   ruby-recaptcha
