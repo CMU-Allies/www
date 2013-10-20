@@ -25,9 +25,7 @@ module ApplicationHelper
   def user_level_options
     levels = 0..3
     levels.map do |level|
-      fake_user = User.new
-      fake_user.level = level
-      [fake_user.user_level, level]
+      [User.user_level(level), level]
     end
   end
   
