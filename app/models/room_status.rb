@@ -11,11 +11,6 @@ class RoomStatus < ActiveRecord::Base
   
   rails_admin do
     base do
-      configure :user do
-        pretty_value do
-          bindings[:object].user.login
-        end
-      end
       configure :created_at do
         hide
       end
