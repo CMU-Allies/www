@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   validates :login, presence: true, uniqueness: { case_sensitive: false }
   validates :level, inclusion: { in: 0..3 }, presence: true
   
+  scope :admins, -> { where(level: 3) }
+  
   def self.user_level(level)
     case level
     when 0

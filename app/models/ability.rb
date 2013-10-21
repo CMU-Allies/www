@@ -5,11 +5,12 @@ class Ability
     user ||= User.new
     
     if user.admin?
+      # In addition to editor stuff, admins can manage users,
+      # see a log of room status changes, and manage officers
       can :manage, User
       can :read, RoomStatus
       can :export, RoomStatus
       can :manage, Officer
-      can :manage, NewsFeed
     end
     
     if user.editor?
@@ -17,12 +18,10 @@ class Ability
       can :access, :rails_admin
       can :dashboard
       
-      # Articles
       can :manage, Article
-      
-      # Resources
       can :manage, Resource
       can :manage, ResourceCategory
+      can :manage, NewsFeed
     end
     
     if user.active?
