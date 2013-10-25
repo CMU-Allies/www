@@ -14,13 +14,31 @@ class Resource < ActiveRecord::Base
     
     list do
       field :title
-      field :text
+      field :text do
+        formatted_value do
+          bindings[:object].text.gsub(/<[^>]*>/ui,' ')
+        end
+      end
       field :url
       field :resource_category
     end
     
     edit do
       configure :text, :wysihtml5
+    end
+    
+    show do
+      configure :text do
+        formatted_value do
+          bindings[:object].text.gsub(/<[^>]*>/ui,' ')
+        end
+      end
+      
+      configure :url do
+        formatted_value do
+          ("<a href=\"" + bindings[:object].url + "\">" + bindings[:object].url + "</a>").html_safe
+        end
+      end
     end
   end
 end
