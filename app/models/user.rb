@@ -52,6 +52,31 @@ class User < ActiveRecord::Base
     end 
   end
   
+  before_create :approve_safezone_trained
+  def approve_safezone_trained
+    if self.level = 0
+      begin
+        config = YAML.load(File.read(Rails.root.join("config", "google_drive.yml").to_s))
+        session = GoogleDrive.login(config["username"], config["password"])
+        worksheet = session.spreadsheet_by_key(config["spreadsheet"]).worksheets[0]
+      
+        for row in 2..worksheet.num_rows
+          if worksheet[row,1] == self.email
+            if worksheet[row,2].downcase == self.first_name.downcase and worksheet[row,3].downcase == self.last_name.downcase
+              self.level = 1
+              break
+            else
+              self.errors.add(:email, "Your email and name do not match the data in the SafeZone trained database.")
+              return false
+            end
+          end
+        end
+      rescue Exception => e
+        Rails.logger.error("Google drive information for SafeZone trained database is invalid:\n" + e.to_s)
+      end
+    end
+  end
+  
   after_create :send_admin_mail
   def send_admin_mail
     AdminMailer.new_user_waiting_for_approval(self).deliver unless self.level > 0
