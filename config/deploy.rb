@@ -32,6 +32,7 @@ namespace :deploy do
     run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/secret_token.rb #{ release_path }/config/initializers/secret_token.rb"
     run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/devise.rb #{ release_path }/config/initializers/devise.rb"
     run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/google_drive.yml #{ release_path }/config/google_drive.yml"
+    run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/mailer.rb #{ release_path }/config/initializers/mailer.rb"
   end
 end
 
