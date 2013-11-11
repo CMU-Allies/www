@@ -1,10 +1,20 @@
 class OfficeHour < ActiveRecord::Base
   belongs_to :user
   
-  validates :user, :day, :starts, :ends, :presence => true
-  
   extend Enumerize
   enumerize :day, :in => [:monday, :tuesday, :wednesday, :thursday, :friday]
+  
+  validates :user, :day, :starts, :ends, :presence => true
+  validate :valid_timespans, :unique_timespans
+  
+  def valid_timespans
+    errors.add(:ends, "cannot be before or equal to starts") if starts >= ends
+  end
+  
+  def unique_timespans
+    exceptions = OfficeHour.where("day = ? AND ((starts < ? AND ends > ?) OR (starts < ? AND ends > ?) OR (starts > ? AND ends < ?))", day, starts, starts, ends, ends, starts, ends)
+    errors.add(:base, "Office hour conflicts with preexisting hours.") if !exceptions.to_a.empty?
+  end
   
   def starts=(ts)
     if ts.class == String and !ts.numeric?
