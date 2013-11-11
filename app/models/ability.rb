@@ -13,7 +13,7 @@ class Ability
       can :manage, Officer
     end
     
-    if user.editor?
+    if user.editor? or user.admin?
       # Editors and admins have access to the admin panel
       can :access, :rails_admin
       can :dashboard

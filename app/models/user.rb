@@ -3,37 +3,12 @@ class User < ActiveRecord::Base
   
   validates :first_name, :last_name, presence: true
   validates :login, presence: true, uniqueness: { case_sensitive: false }
-  validates :level, inclusion: { in: 0..3 }, presence: true
   
-  scope :admins, -> { where(level: 3) }
-  
-  def self.user_level(level)
-    case level
-    when 0
-      "Not activated"
-    when 1
-      "SafeZone Trained"
-    when 2
-      "Editor"
-    when 3
-      "Admin"
-    end
-  end
-  
-  def user_level
-    User.user_level self.level
-  end
+  extend Enumerize
+  enumerize :level, in: [:inactive, :trained, :editor, :admin], :predicates => true, :scope => true
   
   def active?
-    self.level >= 1
-  end
-  
-  def editor?
-    self.level >= 2
-  end
-  
-  def admin?
-    self.level >= 3
+    not inactive?
   end
   
   def self.find_for_database_authentication(conditions)
@@ -41,11 +16,11 @@ class User < ActiveRecord::Base
   end
   
   def active_for_authentication? 
-    super && active? 
+    super && active?
   end 
 
   def inactive_message 
-    if !active? 
+    if inactive? 
       :not_approved 
     else 
       super # Use whatever other message 
@@ -54,7 +29,7 @@ class User < ActiveRecord::Base
   
   before_create :approve_safezone_trained
   def approve_safezone_trained
-    if self.level = 0
+    if inactive?
       begin
         config = YAML.load(File.read(Rails.root.join("config", "google_drive.yml").to_s))
         session = GoogleDrive.login(config["username"], config["password"])
@@ -63,7 +38,7 @@ class User < ActiveRecord::Base
         for row in 2..worksheet.num_rows
           if worksheet[row,1] == self.email
             if worksheet[row,2].downcase == self.first_name.downcase and worksheet[row,3].downcase == self.last_name.downcase
-              self.level = 1
+              self.level = :trained
               break
             else
               self.errors.add(:email, "Your email and name do not match the data in the SafeZone trained database.")
@@ -79,7 +54,7 @@ class User < ActiveRecord::Base
   
   after_create :send_admin_mail
   def send_admin_mail
-    AdminMailer.new_user_waiting_for_approval(self).deliver unless self.level > 0
+    AdminMailer.new_user_waiting_for_approval(self).deliver if inactive?
   end
   
   def self.send_reset_password_instructions(attributes={})
@@ -102,11 +77,7 @@ class User < ActiveRecord::Base
       field :email
       field :first_name
       field :last_name
-      field :level do
-        pretty_value do
-          bindings[:object].user_level
-        end
-      end
+      field :level
     end
     
     edit do
@@ -119,11 +90,7 @@ class User < ActiveRecord::Base
       field :email
       field :first_name
       field :last_name
-      field :level do
-        def render
-          bindings[:view].render :partial => "user_level_select", :locals => {:field => bindings[:object]}
-        end
-      end
+      field :level
     end
   end
 end

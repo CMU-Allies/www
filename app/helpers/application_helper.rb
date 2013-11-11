@@ -15,18 +15,11 @@ module ApplicationHelper
   end
   
   def editor?
-    user_signed_in? and current_user.editor?
+    user_signed_in? and (current_user.editor? or current_user.admin?)
   end
   
   def active?
     user_signed_in? and current_user.active?
-  end
-  
-  def user_level_options
-    levels = 0..3
-    levels.map do |level|
-      [User.user_level(level), level]
-    end
   end
   
   def display_room_status
