@@ -18,3 +18,4 @@ pickle-email-*.html
 database.yml
 /config/initializers/devise.rb
 google_drive.yml
+public/assets

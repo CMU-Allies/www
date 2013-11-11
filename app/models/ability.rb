@@ -22,6 +22,7 @@ class Ability
       can :manage, Resource
       can :manage, ResourceCategory
       can :manage, NewsFeed
+      can :manage, OfficeHour
     end
     
     if user.active?
