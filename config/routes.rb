@@ -4,7 +4,7 @@ Alliesweb::Application.routes.draw do
   root 'articles#home'
   get 'articles' => 'articles#index'
   post 'open' => 'room_statuses#open'
-  post 'close' => 'room_statuses#close'
+  post 'midnight' => 'room_statuses#set_midnight'
   get 'about' => 'static#about'
   get 'calendar' => 'static#calendar'
   get 'resources' => 'resources#index'

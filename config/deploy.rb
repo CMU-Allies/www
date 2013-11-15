@@ -39,3 +39,6 @@ end
 after "deploy:finalize_update", "deploy:symlink_config_files"
 after "deploy", "deploy:restart"
 after "deploy", "deploy:cleanup"
+
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
