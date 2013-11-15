@@ -6,10 +6,8 @@ class Ability
     
     if user.admin?
       # In addition to editor stuff, admins can manage users,
-      # see a log of room status changes, and manage officers
+      # and manage officers
       can :manage, User
-      can :read, RoomStatus
-      can :export, RoomStatus
       can :manage, Officer
     end
     
@@ -27,7 +25,7 @@ class Ability
     
     if user.active?
       # Room status changes, mostly
-      can :create, RoomStatus
+      can :update, RoomStatus
     end
   end
 end

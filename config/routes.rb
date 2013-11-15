@@ -3,7 +3,8 @@ Alliesweb::Application.routes.draw do
   devise_for :users
   root 'articles#home'
   get 'articles' => 'articles#index'
-  post 'status' => 'room_statuses#create'
+  post 'open' => 'room_statuses#open'
+  post 'close' => 'room_statuses#close'
   get 'about' => 'static#about'
   get 'calendar' => 'static#calendar'
   get 'resources' => 'resources#index'

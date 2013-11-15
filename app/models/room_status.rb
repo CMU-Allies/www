@@ -1,4 +1,5 @@
 class RoomStatus < ActiveRecord::Base
+  acts_as_singleton
   belongs_to :user
   
   def status
@@ -6,14 +7,6 @@ class RoomStatus < ActiveRecord::Base
       :open
     else
       :closed
-    end
-  end
-  
-  rails_admin do
-    base do
-      configure :created_at do
-        hide
-      end
     end
   end
 end

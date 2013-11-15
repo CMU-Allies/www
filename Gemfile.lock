@@ -25,6 +25,8 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    acts_as_singleton (0.0.8)
+      activerecord (>= 3.1.0)
     arel (4.0.0)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
@@ -197,6 +199,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_singleton
   bootstrap-wysihtml5-rails
   cancan
   capistrano (~> 2.0)
