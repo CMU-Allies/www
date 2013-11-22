@@ -159,6 +159,8 @@ GEM
       json (~> 1.4)
     remotipart (1.2.1)
     ruby-recaptcha (1.0.5)
+    rvm-capistrano (1.5.1)
+      capistrano (~> 2.15.4)
     safe_yaml (0.9.7)
     sass (3.2.12)
     sass-rails (4.0.1)
@@ -219,6 +221,7 @@ DEPENDENCIES
   rails (= 4.0.0)
   rails_admin
   ruby-recaptcha
+  rvm-capistrano
   sass-rails (~> 4.0.0)
   sdoc
   simple-rss
