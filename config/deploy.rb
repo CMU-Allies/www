@@ -47,5 +47,5 @@ require "whenever/capistrano"
 # RVM
 require "rvm/capistrano"
 set :rvm_ruby_string, :local        # use the same ruby as used locally for deployment
-before 'deploy', 'rvm:install_rvm'  # install/update RVM
-before 'deploy', 'rvm:install_ruby'
+before 'deploy:setup', 'rvm:install_rvm'  # install/update RVM
+before 'deploy:setup', 'rvm:install_ruby'
