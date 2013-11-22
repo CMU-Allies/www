@@ -19,3 +19,4 @@ database.yml
 /config/initializers/devise.rb
 google_drive.yml
 public/assets
+config/initializers/recaptcha.rb
