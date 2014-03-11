@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131115154824) do
+ActiveRecord::Schema.define(version: 20140311174704) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -76,10 +76,10 @@ ActiveRecord::Schema.define(version: 20131115154824) do
 
   create_table "room_statuses", force: true do |t|
     t.integer  "user_id"
-    t.boolean  "open",                             null: false
+    t.boolean  "open",              default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "close_at_midnight", default: true, null: false
+    t.boolean  "close_at_midnight", default: true,  null: false
   end
 
   create_table "users", force: true do |t|
