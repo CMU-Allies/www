@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20131115154824) do
 
   create_table "room_statuses", force: true do |t|
     t.integer  "user_id"
-    t.boolean  "open",                             null: false
+    t.boolean  "open", default: false,                        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "close_at_midnight", default: true, null: false
