@@ -33,18 +33,19 @@ $(document).ready( function() {
     selectTab.stop().css('z-index', '1').fadeToggle('slow')
   }
 */
-
+  /*
   $(window).scroll(function() {
     if($("body").scrollTop() > 240) {
       $(".topnavbar").css({"position" : "fixed", "left" : "0%", "background" : "white", "height" : "40px", "width" : "100%"})
-      $(".topnavbar").children().css({"margin-top" : "0px"/*, "vertical-align" : "top"*/})
+      $(".topnavbar").children().css({"margin-top" : "0px"})
     }
     if($("body").scrollTop() < 240) {
       $(".topnavbar").css({"position" : "static", "margin-left" : "auto", "background" : "none"})
-      $(".topnavbar").children().css({"margin-top" : "0px"/*, "vertical-align" : "top"*/})
+      $(".topnavbar").children().css({"margin-top" : "0px"})
     }
   })
-  $("div#dropdown").hide()
+  */
+//  $("div#dropdown").hide()
   $(".morecontent").hide()
   $("div.topnav").mouseover( function(){
     brightalpha(this)
@@ -67,7 +68,7 @@ $(document).ready( function() {
     }, {duration: "fast", queue: false}, "linear")
   })
   
-  $("#d3").mouseover( function(){
+  /* $("#d3").mouseover( function(){
     $("#dropdown").slideDown(500)
     $(this).animate({
       width:'120px',
@@ -75,6 +76,7 @@ $(document).ready( function() {
       marginTop: '0px'
     }, "fast")
   })
+  */
   $(".wrapper").mouseleave( function(){
     $("#dropdown").stop().slideUp(100)
   })
