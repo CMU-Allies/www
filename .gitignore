@@ -20,3 +20,5 @@ database.yml
 google_drive.yml
 public/assets
 config/initializers/recaptcha.rb
+.DS_Store
+*.swp

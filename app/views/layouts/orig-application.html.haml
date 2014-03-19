@@ -1,0 +1,38 @@
+!!! 5
+%html
+  %head
+    %title= layout_title
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    %header#banner{ :style => "background-image: url(" + asset_path("banners/" + (Random.rand(4) + 1).to_s + ".jpg") + ")" }
+      #logo
+      %nav#navbar
+        %ul
+          %li= link_to "Home", root_url
+          %li= link_to "About", about_url
+          %li= link_to "Resources", resources_url
+          %li= link_to "Calendar", calendar_url
+          %li= link_to "News", news_url
+          - if user_signed_in?
+            - if !admin?
+              %li= link_to "Account", edit_user_registration_url
+            - if editor?
+              %li= link_to "Admin", rails_admin.dashboard_path
+            %li= link_to "Log out", destroy_user_session_url, :method => :delete
+          - unless user_signed_in?
+            %li= link_to "Log in", new_user_session_url
+    #main-content
+      - if flash[:notice]
+        #notice= flash[:notice]
+      - if flash[:alert]
+        #alert= flash[:alert]
+      = yield
+    %footer#main-footer
+      SOHO is located on the third floor of the University Center, Room 325
+      %br
+      We can be reached at #{link_to "allies@andrew.cmu.edu", "mailto:allies@andrew.cmu.edu"}
+      %br
+      Additionally, our office phone number is: x8-9994 (412-268-9994)
+      %p Copyright &copy; #{Time.now.year} ALLIES and Carnegie Mellon. All Rights Reserved.
