@@ -7,45 +7,46 @@
     = csrf_meta_tags
     = favicon_link_tag 'favicon.ico'
   %body
-    =image_tag "Allies-banner.jpg"
-    .topnavbar
-      .wrapper 
-        .topnav#d1
-          = link_to "Home", root_url
-      .wrapper
-        .topnav#d2
-          = link_to "About", about_url
-      .wrapper
-        .topnav#d3
-          = link_to "Resources", resources_url
-      .wrapper
-        .topnav#d4
-          = link_to "Calendar", calendar_url
-      .wrapper
-        .topnav#d5
-          = link_to "News", news_url 
-      - if user_signed_in?
-        - if !admin?
+    #main-column
+      = image_tag "Allies-banner.jpg"
+      .topnavbar
+        .wrapper 
+          .topnav#d1
+            = link_to "Home", root_url
+        .wrapper
+          .topnav#d2
+            = link_to "About", about_url
+        .wrapper
+          .topnav#d3
+            = link_to "Resources", resources_url
+        .wrapper
+          .topnav#d4
+            = link_to "Calendar", calendar_url
+        .wrapper
+          .topnav#d5
+            = link_to "News", news_url 
+        - if user_signed_in?
+          - if !admin?
+            .wrapper
+              .topnav#d6
+                = link_to "Account", edit_user_registration_url
+          - if editor?
+            .wrapper
+              .topnav#d6
+                = link_to "Admin", rails_admin.dashboard_path
           .wrapper
             .topnav#d6
-              = link_to "Account", edit_user_registration_url
-        - if editor?
+              = link_to "Log out", destroy_user_session_url, :method => :delete
+        - unless user_signed_in?
           .wrapper
             .topnav#d6
-              = link_to "Admin", rails_admin.dashboard_path
-        .wrapper
-          .topnav#d6
-            = link_to "Log out", destroy_user_session_url, :method => :delete
-      - unless user_signed_in?
-        .wrapper
-          .topnav#d6
-            = link_to "Log in", new_user_session_url
-    #main-content
-      - if flash[:notice]
-        #notice= flash[:notice]
-      - if flash[:alert]
-        #alert= flash[:alert]
-      = yield
+              = link_to "Log in", new_user_session_url
+      #main-content
+        - if flash[:notice]
+          #notice= flash[:notice]
+        - if flash[:alert]
+          #alert= flash[:alert]
+        = yield
     %footer#main-footer
       SOHO is located on the third floor of the University Center, Room 325
       %br

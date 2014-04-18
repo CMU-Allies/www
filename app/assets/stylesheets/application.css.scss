@@ -19,9 +19,13 @@ html {
 body {
   margin: 0 auto;
   width: 50em;
+  font-family: Helvetica, sans-serif;
+}
+
+#main-column {
   background-color: white;
   border-radius: 20px;
-  font-family: Helvetica, sans-serif;
+  margin-bottom: 1em;
 }
 
 #banner {
@@ -146,7 +150,6 @@ div.dropelem {
 #main-footer {
   background-color: white;
   padding: 1em 10px;
-  border-top: 15px solid #D2B0FF;
   border-radius: 20px;
 }
 

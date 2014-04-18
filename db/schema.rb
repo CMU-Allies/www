@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140311174704) do
     t.datetime "updated_at"
   end
 
-  add_index "office_hours", ["user_id"], name: "index_office_hours_on_user_id"
+  add_index "office_hours", ["user_id"], name: "index_office_hours_on_user_id", using: :btree
 
   create_table "officers", force: true do |t|
     t.integer  "user_id",    null: false
@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(version: 20140311174704) do
     t.integer  "item"
     t.string   "table"
     t.integer  "month",      limit: 2
-    t.integer  "year",       limit: 5
+    t.integer  "year",       limit: 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
 
   create_table "resource_categories", force: true do |t|
     t.string   "title",      null: false
@@ -102,8 +102,8 @@ ActiveRecord::Schema.define(version: 20140311174704) do
     t.string   "level",                  default: "inactive", null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["login"], name: "index_users_on_login", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["login"], name: "index_users_on_login", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
