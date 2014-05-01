@@ -13,15 +13,19 @@
  */
 
 html {
-  background-color: #666;
+  background-color: #D2B0FF;
 }
 
 body {
   margin: 0 auto;
-  width: 48em;
-  background-color: white;
-  border: 1px solid black;
+  width: 50em;
   font-family: Helvetica, sans-serif;
+}
+
+#main-column {
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 1em;
 }
 
 #banner {
@@ -35,58 +39,124 @@ body {
   background-image: url(image-path("logo.png"))
 }
 
-#navbar {
-  height: 25px;
-  padding-right: 5px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  opacity: .8;
+div.topnavbar{
+  height: 30px;
+  width: 49em;
+  position: static;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.topnav {
+  width: 100px;
+  height: 30px;
+  font-family: trebuchet, verdana, ariel, sans-serif;
+  font-size: 17px;
+  text-align: center;
+  line-height: 180%;
+  vertical-align: top;
+  display: inline-block;
+  margin-left: .1em;
+  margin-right: .1em;
+  margin-top: 5px;
+  border-radius: 10px;  
+}
+
+div.topnav#d1 {
+  background-color: rgba(229, 112, 123, 1);
+}
+div.topnav#d2 {
+  background-color: rgba(229, 171, 114, 1);
+}
+div.topnav#d3 {
+  background-color: rgba(229, 205, 130, 1);
+}
+div.topnav#d4 {
+  background-color: rgba(183, 229, 137, 1);
+}
+div.topnav#d5 {
+  background-color: rgba(117, 229, 158, 1);
+}
+div.topnav#d6 {
+  background-color: rgba(192, 147, 229, 1);
+}
+
+div.large#d3 {
+  background-color: rgba(229, 205, 130, 1);
+  width: 120px;
+  height: 40px;
+}
+
+div.wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  height: 40px;
+  a {
+    text-decoration: none;
+    font-family: trebuchet, verdana, ariel, sans-serif;
+    color: black;
+  }
+}
+
+div#dropdown {
+  height: 63px;
+  width: 100px;
   background-color: white;
-  margin-top: 29px;
-}
-
-#navbar li {
-  display: inline;
-  float: left;
-}
-
-#navbar li a {
-  padding: 4px 15px;
-  text-decoration: none;
+  margin-left: 20px;
   position: relative;
-  top: 5px;
-  color: black;
-  height: 19px;
+  z-index: 1;
 }
 
-#navbar li a:hover {
-  background-color: #666;
+div.dropelem {
+  background-color: rgba(255, 243, 175, 1);
+  font-family: trebuchet, verdana, ariel, sans-serif;
+  padding: 1px;
 }
+
+#dropdown,.dropelem,.topnav {
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
 
 #main-content {
   padding: 20px 20px 10px 20px;
+  border-radius: 20px;
 }
 
 #notice {
-  border: 1px solid black;
   text-align: left;
-  padding: 5px;
   margin-bottom: 20px;
-  background-color: yellow;
+  background-color: #FFF68F;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 10px;
+  box-sizing: border-box;
 }
 
 #alert {
-  border: 1px solid black;
   text-align: left;
   padding: 5px;
   margin-bottom: 20px;
-  background-color: red;
+  box-sizing: border-box;
+  background-color: #EE3B3B;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 #main-footer {
-  background-color: #ddd;
+  background-color: white;
   padding: 1em 10px;
-  border-top: 1px solid black;
+  border-radius: 20px;
 }
 
 #main-footer p {
@@ -95,10 +165,12 @@ body {
 }
 
 #roomstatus {
-  border: 1px solid black;
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 20px;
-  
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+
   p {
     margin-top: 1em;
   }
@@ -113,7 +185,7 @@ body {
 }
 
 .rs-open {
-  background-color: #3c0;
+  background-color: rgb(183, 229, 137);
 }
 
 .rs-closed {
