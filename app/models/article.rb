@@ -4,7 +4,10 @@ class Article < ActiveRecord::Base
   rails_admin do
     edit do
       field :title
-      field :body, :wysihtml5
+      field :body
+      field :homepage do
+        label "Show on homepage?"
+      end
     end
   end
 end

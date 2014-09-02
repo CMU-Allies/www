@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   
   def home
-    @articles = Article.order("created_at DESC").limit(5)
+    @articles = Article.order("created_at DESC").where(homepage: true)
     
     respond_to do |format|
       format.html # home.html.haml

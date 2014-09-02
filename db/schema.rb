@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311174704) do
+ActiveRecord::Schema.define(version: 20140902205924) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "homepage",   null: false
   end
 
   create_table "news_feeds", force: true do |t|
