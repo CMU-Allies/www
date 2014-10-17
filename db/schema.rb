@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902205924) do
+ActiveRecord::Schema.define(version: 20141017191050) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20140902205924) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "office_hour_logs", force: true do |t|
+    t.integer  "user_id"
+    t.boolean  "is_open"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "office_hour_logs", ["user_id"], name: "index_office_hour_logs_on_user_id", using: :btree
 
   create_table "office_hours", force: true do |t|
     t.integer  "user_id",    null: false

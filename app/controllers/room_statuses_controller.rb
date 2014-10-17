@@ -7,6 +7,8 @@ class RoomStatusesController < ApplicationController
     status.close_at_midnight = true
     status.save
     
+    OfficeHourLog.create(:user => current_user, :is_open => params[:open])
+    
     redirect_to root_url
   end
   
