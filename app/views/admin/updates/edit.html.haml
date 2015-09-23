@@ -1,0 +1,13 @@
+= render layout: "admin/shared/tabbed", locals: {tab: "updates"} do
+  = form_for @update, url: admin_update_path(@update) do |f|
+    %h2 Edit update "#{@update.title}"
+    = display_error_messages @update
+    %div
+      = f.label :title
+      = f.text_field :title
+    %div
+      = f.label :body
+      = f.text_area :body, :id => "markdown-input"
+    %article#markdown-preview
+    %div= f.submit
+                  

@@ -1,12 +1,17 @@
 Alliesweb::Application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  namespace :admin do
+    root 'pages#index'
+    
+    resources :updates, except: [:show]
+    resources :pages, except: [:index, :show]
+    resources :users, except: [:show, :new, :create]
+  end
+
   devise_for :users
-  root 'articles#home'
-  get 'articles' => 'articles#index'
+  root 'welcome#index'
   post 'open' => 'room_statuses#open'
   post 'midnight' => 'room_statuses#set_midnight'
-  get 'about' => 'static#about'
-  get 'calendar' => 'static#calendar'
-  get 'resources' => 'resources#index'
-  get 'news' => 'news#index'
+  
+  resources :updates, only: [:index, :show]
+  resources :pages, only: [:show]
 end

@@ -1,0 +1,26 @@
+= render layout: "admin/shared/tabbed", locals: {tab: "users"} do
+  = form_for @user, url: admin_user_path(@user) do |f|
+    %h2 Edit user "#{@user.login}"
+    = display_error_messages @user
+    %div
+      = f.label :login
+      = f.text_field :login, autofocus: true
+    %div
+      = f.label :email
+      = f.email_field :email
+    %div
+      = f.label :first_name
+      = f.text_field :first_name
+    %div
+      = f.label :last_name
+      = f.text_field :last_name
+    %div
+      = f.label :password
+      = f.password_field :password, autocomplete: "off"
+    %div
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+    %div
+      = f.label :level
+      = f.select :level, levels_for_select(@user.level)
+    %div= f.submit

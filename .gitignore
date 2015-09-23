@@ -22,3 +22,4 @@ public/assets
 config/initializers/recaptcha.rb
 .DS_Store
 *.swp
+config/secrets.yml

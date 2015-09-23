@@ -1,0 +1,17 @@
+= render layout: "admin/shared/tabbed", locals: {tab: "updates"} do
+  %table.admin-table
+    %tr
+      %th Title
+      %th Last updated
+      %th Operations
+    - @updates.each do |update|
+      %tr{ class: cycle("even", "odd")}
+        %td= update.title
+        %td= update.updated_at
+        %td
+          = link_to "Edit", edit_admin_update_url(update)
+          |
+          = link_to "Show", update_url(update)
+          |
+          = link_to "Delete", admin_update_url(update), :method => :delete, data: {confirm: "Are you sure you want to delete this update?"}
+  %p= link_to "Create new update", new_admin_update_url

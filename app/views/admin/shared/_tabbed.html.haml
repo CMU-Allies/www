@@ -1,0 +1,10 @@
+%h2 Admin panel
+#admin-panel
+  %ul#admin-tabs
+    %li= link_to_admin_tab "Pages", admin_root_url, tab, "pages"
+    %li= link_to_admin_tab "Updates", admin_updates_url, tab, "updates"
+    - if admin?
+      %li= link_to_admin_tab "Users", admin_users_url, tab, "users"
+    - unless admin?
+      %li= link_to "Account", edit_registration_url(current_user)
+  #admin-content= yield

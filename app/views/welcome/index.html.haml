@@ -1,0 +1,11 @@
+- if @snippet
+  #about
+    %h2 About ALLIES
+    %article= raw @markdown.render @snippet.body
+    .afterthought= link_to "Read more...", page_url("about")
+%hr
+- if @update
+  #update
+    %h2= @update.title
+    %article= raw @markdown.render @update.body
+    .afterthought= link_to "Older updates...", updates_url

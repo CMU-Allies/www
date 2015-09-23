@@ -1,13 +1,17 @@
 module ApplicationHelper
-  include ReCaptcha::ViewHelper
-  
   def layout_title
     title = ""
     if ENV['RAILS_ENV'] == 'development'
       title = "DEVELOPMENT - "
     end
     
-    title + "ALLIES@CMU"
+    title += "CMU ALLIES"
+    
+    if @title
+      title += " - " + @title
+    end
+    
+    title
   end
   
   def admin?
@@ -22,9 +26,13 @@ module ApplicationHelper
     user_signed_in? and current_user.active?
   end
   
-  def display_room_status
-    status = RoomStatus.instance
-    render partial: "shared/status", locals: { status: status }
+  def display_error_messages(model)
+    return "" if model.errors.empty?
+    
+    messages = model.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
+    html = "<div id=\"error_explanation\">\n<ul>#{messages}</ul>\n</div>\n"
+
+    html.html_safe
   end
   
 end

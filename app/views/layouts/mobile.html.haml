@@ -1,0 +1,17 @@
+!!! 5
+%html
+  %head
+    %title= layout_title
+    = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "mobile", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = favicon_link_tag 'favicon.ico'
+  %body
+    = render partial: "shared/sidebar_top"
+    - if flash[:notice]
+      #notice= flash[:notice]
+    - if flash[:alert]
+      #alert= flash[:alert]
+    #mobile-body= yield
+    = render partial: "shared/sidebar_bottom"

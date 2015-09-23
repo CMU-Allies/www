@@ -1,0 +1,36 @@
+= link_to (image_tag "ALLIES_Logo_BlackText.png", id: "logo"), root_url
+%ul#topnav
+  %li= link_to "Home", root_url
+  %li= link_to "About", page_url("about")
+  - if user_signed_in?
+    - if editor?
+      %li= link_to "Admin", admin_root_url
+    - else
+      %li= link_to "Account", edit_registration_url(current_user)
+    %li= link_to "Log out", destroy_user_session_url, :method => :delete
+  - unless user_signed_in?
+    %li= link_to "Log in", new_user_session_url
+#roomstatus{ :class => "rs-" + @status.status.to_s }
+  %h3 SoHo is #{@status.status.to_s}
+  - if @status.user
+    %p.updated (Last updated: #{@status.updated_at.strftime "%a, %b %d %H:%M"} by #{@status.user.first_name})
+  - if !@status.user
+    %p.updated (Last updated: #{@status.updated_at.strftime "%a, %b %d %H:%M"})
+  %p SoHo is the ALLIES office and is located on the third floor of the University Center, Room 353. When it is open, feel free to come by to hang out, do work, or talk with someone who is SafeZone trained. Our SafeZone trained members regularly hold #{link_to "office hours", page_url("office-hours")} in SoHo.
+  - if user_signed_in?
+    - if @status.open
+      = form_tag :controller => '/room_statuses', :action => 'open' do
+        = hidden_field_tag 'open', 'false'
+        = submit_tag 'Mark SoHo closed', :class => 'inline-button'
+      - if @status.close_at_midnight
+        = form_tag :controller => '/room_statuses', :action => 'set_midnight' do
+          = hidden_field_tag 'midnight', 'false'
+          = submit_tag 'Keep open at midnight'
+      - if !@status.close_at_midnight
+        = form_tag :controller => '/room_statuses', :action => 'set_midnight' do
+          = hidden_field_tag 'midnight', 'true'
+          = submit_tag 'Close at midnight'
+    - if !@status.open
+      = form_tag :controller => '/room_statuses', :action => 'open' do
+        = hidden_field_tag 'open', 'true'
+        = submit_tag 'Mark SoHo open', :class => 'inline-button'

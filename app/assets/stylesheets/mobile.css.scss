@@ -1,0 +1,55 @@
+body {
+  text-align: center;
+}
+
+#logo {
+  width: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#topnav {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 3.5em;
+  
+  li {
+    display: block;
+    font-size: 350%;
+    margin-bottom: .5em;
+  }
+}
+
+#roomstatus {
+  text-align: left;
+  
+  p {
+    font-size: 250%;
+    clear: both;
+  }
+  
+  h3 {
+    font-size: 300%;
+    display: inline-block;
+  }
+  
+  .updated {
+    font-size: 200%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+#mobile-body {
+  text-align: left;
+  margin: 0 5%;
+  
+  h2 {
+    font-size: 36px;
+    text-align: center;
+  }
+  
+  p {
+    margin-bottom: 1em;
+  }
+}

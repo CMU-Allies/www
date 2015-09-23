@@ -1,0 +1,4 @@
+%h2 Update archive
+%ul#update-archive
+  - @updates.each do |update|
+    %li= link_to update.title, update

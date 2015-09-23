@@ -1,7 +1,8 @@
 class RoomStatusesController < ApplicationController
+  before_filter :user_is_logged_in?
+  
   def open
     status = RoomStatus.instance
-    authorize! :update, status
     status.open = params[:open]
     status.user = current_user
     status.close_at_midnight = true
@@ -14,7 +15,6 @@ class RoomStatusesController < ApplicationController
   
   def set_midnight
     status = RoomStatus.instance
-    authorize! :update, status
     status.close_at_midnight = params[:midnight]
     status.user = current_user
     status.save

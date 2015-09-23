@@ -1,0 +1,13 @@
+= render layout: "admin/shared/tabbed", locals: {tab: "pages"} do
+  = form_for @page, url: admin_pages_path do |f|
+    %h2 Create page
+    = display_error_messages @page
+    %div
+      = f.label :title
+      = f.text_field :title
+    %div
+      = f.label :body
+      = f.text_area :body, :id => "markdown-input"
+    %article#markdown-preview
+    %div= f.submit
+                  
