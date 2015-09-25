@@ -83,8 +83,18 @@ a {
 }
 
 #main-column, #admin-content form article {
+  line-height: 120%;
+  
   p {
     margin-top: 1em;
+    
+    &+ul, &+ol {
+      margin-top: 1em;
+    }
+  }
+  
+  li p + ul, li p + ol {
+    margin-top: 0;
   }
   
   h2 {
@@ -99,6 +109,16 @@ a {
   
   ul, ol {
     margin-left: 2em;
+  }
+  
+  li :first-child {
+    margin-top: 0;
+  }
+}
+
+#main-column article, #admin-content form article {
+  &>ul>li + li {
+    margin-top: 1em;
   }
 }
 
@@ -185,6 +205,19 @@ a {
 
 #about, #update {
   margin-top: .5em;
+}
+
+#about {
+  margin-bottom: 1.5em;
+  padding: .5em;
+  background-color: #AFEEF9;
+  border: 1px solid gray;
+  font-size: 12px;
+  line-height: 120%;
+  
+  h2 {
+    font-size: 16px;
+  }
 }
 
 #roomstatus {

@@ -16,7 +16,7 @@
     %p.updated (Last updated: #{@status.updated_at.strftime "%a, %b %d %H:%M"} by #{@status.user.first_name})
   - if !@status.user
     %p.updated (Last updated: #{@status.updated_at.strftime "%a, %b %d %H:%M"})
-  %p SoHo is the ALLIES office and is located on the third floor of the University Center, Room 353. When it is open, feel free to come by to hang out, do work, or talk with someone who is SafeZone trained. Our SafeZone trained members regularly hold #{link_to "office hours", page_url("office-hours")} in SoHo.
+  %p SoHo is the ALLIES office and is located on the third floor of the Cohen University Center, Room 335. When it is open, feel free to come by to hang out, do work, or talk with someone who is SafeZone trained. Our SafeZone trained members regularly hold #{link_to "office hours", page_url("office-hours")} in SoHo.
   - if user_signed_in?
     - if @status.open
       = form_tag :controller => '/room_statuses', :action => 'open' do

@@ -2,8 +2,6 @@
   #about
     %h2 About ALLIES
     %article= raw @markdown.render @snippet.body
-    .afterthought= link_to "Read more...", page_url("about")
-%hr
 - if @update
   #update
     %h2= @update.title
