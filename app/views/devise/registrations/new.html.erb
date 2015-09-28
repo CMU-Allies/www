@@ -1,25 +1,5 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class: "smartform"}) do |f| %>
   <h2>Sign up</h2>
   
-  <%= devise_error_messages! %>
-  
-  <div><%= f.label :login %>
-  <%= f.text_field :login, :autofocus => true %></div>
-
-  <div><%= f.label :email %>
-  <%= f.email_field :email %></div>
-  
-  <div><%= f.label :first_name %>
-  <%= f.text_field :first_name %></div>
-  
-  <div><%= f.label :last_name %>
-  <%= f.text_field :last_name %></div>
-
-  <div><%= f.label :password %>
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
+  <p>Registration is currently disabled. Please check back in later.</p>
 <% end %>
