@@ -44,7 +44,6 @@ end
 
 gem 'haml'
 gem 'devise'
-gem 'devise-encryptable'
 gem 'enumerize'
 gem 'whenever'
 gem 'rvm-capistrano'

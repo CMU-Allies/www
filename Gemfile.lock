@@ -62,8 +62,6 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    devise-encryptable (0.2.0)
-      devise (>= 2.1.0)
     enumerize (1.0.0)
       activesupport (>= 3.2)
     erubis (2.7.0)
@@ -182,7 +180,6 @@ DEPENDENCIES
   acts_as_singleton
   coffee-rails
   devise
-  devise-encryptable
   enumerize
   friendly_id
   haml
