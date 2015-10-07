@@ -1,5 +1,18 @@
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: "smartform"}) do |f| %>
   <h2>Sign in</h2>
   
-  <p>Logging in is currently disabled. Please check back in later.</p>
+  <div><%= f.label :login %>
+  <%= f.text_field :login, :autofocus => true %></div>
+
+  <div><%= f.label :password %>
+  <%= f.password_field :password %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.label :remember_me %> <%= f.check_box :remember_me %></div>
+  <% end -%>
+
+  <div><%= f.submit "Sign in" %></div>
+  
+  <p>No account? See <%= link_to "Office Hours", page_url("office-hours") %>.</p>
+  <p><%= link_to "Forgot your password?", new_password_path(User) %></p>
 <% end %>
