@@ -79,4 +79,8 @@ Alliesweb::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
   
   config.action_mailer.default_url_options = { :host => 'allies.andrew.cmu.edu' }
+  
+  ActionMailer::Base.smtp_settings = {
+    :openssl_verify_mode => 'none'
+  }
 end
