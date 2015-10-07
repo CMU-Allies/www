@@ -3,7 +3,7 @@ class AdminMailer < ActionMailer::Base
   
   def new_user_waiting_for_approval(user)
     @user = user
-    @url = admin_user_edit_url(user)
+    @url = edit_admin_user(user)
     to = User.with_level(:admin).pluck(:email)
     
     mail(to: to, subject: "Registration Notification for ALLIES")
