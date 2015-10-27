@@ -524,3 +524,19 @@ footer {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+#commissions {
+  margin-top: 1em;
+  
+  tr {
+    td {
+      width: 50%;
+      padding: 1em;
+      vertical-align: middle;
+      
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}

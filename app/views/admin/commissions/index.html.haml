@@ -1,0 +1,15 @@
+= render layout: "admin/shared/tabbed", locals: {tab: "commissions"} do
+  %table.admin-table
+    %tr
+      %th Description
+      %th Created at
+      %th Operations
+    - @commissions.each do |commission|
+      %tr{ class: cycle("even", "odd")}
+        %td= commission.description
+        %td= commission.created_at
+        %td
+          = link_to "Edit", edit_admin_commission_url(commission)
+          |
+          = link_to "Delete", admin_commission_url(commission), :method => :delete, data: {confirm: "Are you sure you want to delete this commission?"}
+  %p= link_to "Create new commission", new_admin_commission_url

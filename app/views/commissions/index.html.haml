@@ -1,0 +1,11 @@
+%h2= @page.title
+%article
+  = raw @markdown.render @page.body
+  %table#commissions
+    - @commissions.each_slice 2 do |slice|
+      %tr
+        - slice.each do |commission|
+          %td
+            = image_tag commission.image.url
+            .commission-description= commission.description
+            .commission-price= number_to_currency commission.price

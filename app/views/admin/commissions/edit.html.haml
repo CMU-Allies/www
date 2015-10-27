@@ -1,0 +1,15 @@
+= render layout: "admin/shared/tabbed", locals: {tab: "commissions"} do
+  = form_for @commission, url: admin_commission_path(@commission) do |f|
+    %h2 Edit commission
+    = display_error_messages @commission
+    %div
+      = f.label :description
+      = f.text_area :commission
+    %div
+      = f.label :price
+      = f.number_field :price
+    %div
+      = f.label :image
+      = f.file_field :image
+    %div= f.submit
+                  

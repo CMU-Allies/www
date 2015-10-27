@@ -5,6 +5,7 @@ Alliesweb::Application.routes.draw do
     resources :updates, except: [:show]
     resources :pages, except: [:index, :show]
     resources :users, except: [:show, :new, :create]
+    resources :commissions, except: [:show]
   end
 
   devise_for :users
@@ -15,4 +16,5 @@ Alliesweb::Application.routes.draw do
   
   resources :updates, only: [:index, :show]
   resources :pages, only: [:show]
+  resources :commissions, only: [:index]
 end
