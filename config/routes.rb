@@ -11,6 +11,7 @@ Alliesweb::Application.routes.draw do
   root 'welcome#index'
   post 'open' => 'room_statuses#open'
   post 'midnight' => 'room_statuses#set_midnight'
+  post 'room_status' => 'room_statuses#pi'
   
   resources :updates, only: [:index, :show]
   resources :pages, only: [:show]
