@@ -23,3 +23,4 @@ config/initializers/recaptcha.rb
 .DS_Store
 *.swp
 config/secrets.yml
+config/pi.yml
