@@ -114,6 +114,13 @@ a {
   li :first-child {
     margin-top: 0;
   }
+  
+  blockquote {
+    margin-top: 1em;
+    border-left: 2px solid green;
+    padding-left: .75em;
+    margin-left: .25em;
+  }
 }
 
 #main-column article, #admin-content form article {
