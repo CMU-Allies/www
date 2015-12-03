@@ -28,6 +28,7 @@ class RoomStatusesController < ApplicationController
     if config[:password] == params[:password]
       status = RoomStatus.instance
       status.open = params[:open]
+      status.user = nil
       status.save
 
       render :json => {status: "success"}
