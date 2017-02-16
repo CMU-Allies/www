@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.1'
+gem 'rails', '~> 5.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -42,11 +42,18 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+  gem "capistrano", "~> 3.7"
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-rvm',   '~> 0.1', require: false
+  gem 'capistrano-passenger', require: false
+end
+
 gem 'haml'
 gem 'devise'
 gem 'enumerize'
 gem 'whenever'
-gem 'rvm-capistrano'
 gem 'acts_as_singleton'
 gem 'friendly_id'
 gem 'redcarpet'
