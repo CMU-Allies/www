@@ -1,3 +1,3 @@
-class OfficeHourLog < ActiveRecord::Base
+class OfficeHourLog < ApplicationRecord
   belongs_to :user
 end

@@ -1,5 +1,5 @@
 class Admin::PagesController < ApplicationController
-  before_filter :user_is_editor?
+  before_action :user_is_editor?
   
   def index
     @pages = Page.all

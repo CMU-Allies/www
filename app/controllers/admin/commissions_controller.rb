@@ -1,5 +1,5 @@
 class Admin::CommissionsController < ApplicationController
-  before_filter :user_is_editor?
+  before_action :user_is_editor?
 
   def index
     @commissions = Commission.all

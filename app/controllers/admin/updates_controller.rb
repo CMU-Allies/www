@@ -1,5 +1,5 @@
 class Admin::UpdatesController < ApplicationController
-  before_filter :user_is_editor?
+  before_action :user_is_editor?
   
   def index
     @updates = Update.all

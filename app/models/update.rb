@@ -1,4 +1,4 @@
-class Update < ActiveRecord::Base
+class Update < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
   

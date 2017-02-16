@@ -1,6 +1,6 @@
 class RoomStatusesController < ApplicationController
-  before_filter :user_is_logged_in?, only: [:open, :set_midnight]
-  skip_before_filter :verify_authenticity_token, only: [:pi]
+  before_action :user_is_logged_in?, only: [:open, :set_midnight]
+  skip_before_action :verify_authenticity_token, only: [:pi]
   
   def open
     status = RoomStatus.instance

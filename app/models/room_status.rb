@@ -1,4 +1,4 @@
-class RoomStatus < ActiveRecord::Base
+class RoomStatus < ApplicationRecord
   acts_as_singleton
   belongs_to :user
   
