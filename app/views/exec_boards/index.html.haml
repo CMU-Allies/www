@@ -1,0 +1,7 @@
+%h2 Officers
+%article
+  %p ALLIES is a student-run organization. Ever year, ALLIES elects a board of students to run the organization. Here are the current ALLIES officers:
+  = render @current
+  %p Here is a list of the past ALLIES executive boards:
+  - @exec_boards.each do |board|
+    = render board

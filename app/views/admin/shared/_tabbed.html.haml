@@ -8,4 +8,5 @@
     - unless admin?
       %li= link_to "Account", edit_registration_url(current_user)
     %li= link_to_admin_tab "Commissions", admin_commissions_url, tab, "commissions"
+    %li= link_to_admin_tab "Exec Boards", admin_exec_boards_url, tab, "exec_boards"
   #admin-content= yield

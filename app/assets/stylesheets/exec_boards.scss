@@ -1,0 +1,60 @@
+// Place all the styles related to the ExecBoards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.exec-board {
+  width: 75%;
+  margin: 1em auto;
+  border: 1px solid gray;
+
+  .exec-year {
+    td {
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      padding: .5em;
+    }
+  }
+
+  .exec-president-header, .exec-header {
+    th {
+      border: 1px solid gray;
+      background-color: #EFECF9;
+      font-size: 1.25em;
+      font-weight: bold;
+      text-align: center;
+      padding: .25em;
+    }
+  }
+
+  .exec-president {
+    td {
+      text-align: center;
+      padding: .5em;
+      font-size: 1.25em;
+    }
+  }
+
+  .exec-officer {
+    th {
+      padding: .25em;
+      text-align: right;
+    }
+
+    td {
+      padding: .25em;
+    }
+  }
+
+  .exec-header + .exec-officer {
+    td {
+      padding-top: .5em;
+    }
+  }
+
+  .exec-officer:last-child {
+    td {
+      padding-bottom: .5em;
+    }
+  }
+}

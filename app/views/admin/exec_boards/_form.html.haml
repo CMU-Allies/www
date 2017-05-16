@@ -1,0 +1,23 @@
+= form_for [:admin, @exec_board] do |f|
+  %h2= title
+  = display_error_messages @exec_board
+  %div
+    = f.label :year
+    = f.number_field :year
+  %div
+    %table
+      %tr
+        %th Position
+        %th Name
+        %th
+      = f.fields_for :officers, f.object.officers.sort do |builder|
+        %tr.exec-field
+          = builder.hidden_field :position
+          %td= builder.label :name, builder.object.position
+          %td= builder.text_field :name
+          %td
+            - if builder.object.new_record?
+              = builder.check_box :present
+            - else
+              = builder.check_box :_destroy, {checked: true}, "0", "1"
+  %div= f.submit

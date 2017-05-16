@@ -1,0 +1,15 @@
+= render layout: "admin/shared/tabbed", locals: {tab: "exec_boards"} do
+  %table.admin-table
+    %tr
+      %th Year
+      %th President
+      %th Operations
+    - @exec_boards.each do |exec_board|
+      %tr{ class: cycle("even", "odd")}
+        %td= exec_board.year
+        %td= exec_board.president.name
+        %td
+          = link_to "Edit", edit_admin_exec_board_url(exec_board)
+          |
+          = link_to "Delete", admin_exec_board_url(exec_board), :method => :delete, data: {confirm: "Are you sure you want to delete this exec board?"}
+  %p= link_to "Create new exec board", new_admin_exec_board_url

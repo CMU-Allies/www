@@ -1,0 +1,13 @@
+%table.exec-board
+  %tr.exec-year
+    %td{:colspan => 2}= exec_board.display_year
+  %tr.exec-president-header
+    %th{:colspan => 2} President
+  %tr.exec-president
+    %td{:colspan => 2}= exec_board.president.name
+  %tr.exec-header
+    %th{:colspan => 2} Executive Board
+  - exec_board.executive.each do |officer|
+    %tr.exec-officer
+      %th.exec-officer-position= officer.position
+      %td.exec-officer-name= officer.name
