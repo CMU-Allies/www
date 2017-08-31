@@ -3,7 +3,8 @@
   %li= link_to "Home", root_url
   %li= link_to "About", page_url("about")
   %li= link_to "Office Hours", page_url("office-hours")
-  %li= link_to "Commissions", commissions_url
+  %li= link_to "Activities", page_url("activities")
+  %li= link_to "Resources", page_url("resources")
   - if user_signed_in?
     - if editor?
       %li= link_to "Admin", admin_root_url
