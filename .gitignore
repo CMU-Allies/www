@@ -15,7 +15,6 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
-database.yml
 /config/initializers/devise.rb
 google_drive.yml
 public/assets
@@ -24,3 +23,5 @@ config/initializers/recaptcha.rb
 *.swp
 config/secrets.yml
 config/pi.yml
+tags
+.tags
